@@ -632,6 +632,12 @@ public abstract class AbstractDataSourceService implements Service<DataSource> {
                 if (timeOut.isSetTxQueryTimeout()) {
                     managedConnectionFactory.setTransactionQueryTimeout(true);
                 }
+                if (timeOut.getAllocationRetry() !=null) {
+                    managedConnectionFactory.setAllocationRetry(timeOut.getAllocationRetry().intValue());
+                }
+                if (timeOut.getAllocationRetryWaitMillis() !=null) {
+                    managedConnectionFactory.setAllocationRetryWaitMillis(timeOut.getAllocationRetryWaitMillis().intValue());
+                }
             }
 
             if (statement != null) {
